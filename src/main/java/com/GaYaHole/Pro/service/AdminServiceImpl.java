@@ -3,6 +3,7 @@ package com.GaYaHole.Pro.service;
 import com.GaYaHole.Pro.entity.*;
 import com.GaYaHole.Pro.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -37,7 +38,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Notice> allNotice() throws Exception { //공지 조회
-        List<Notice> ncheck = noticeRepository.findAll();
+      List<Notice> ncheck = noticeRepository.NOTICE_LIST();
+    //    List<Notice> ncheck =noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "nnum"));
         return ncheck;
     }
 

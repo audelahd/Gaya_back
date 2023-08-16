@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/notice")    // 공지 조회 - 전체 목록 불러와서 출력
-    public List<Notice> allnotice(Notice notice) throws Exception {
+    public List<Notice> allnotice() throws Exception {
         List<Notice> allnotice = adminService.allNotice();
         return allnotice;
     }
