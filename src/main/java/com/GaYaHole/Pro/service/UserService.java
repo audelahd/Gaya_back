@@ -16,4 +16,5 @@ public interface UserService {
     public User userinfo(User user); //사용자 정보
     public int countbyidandpwd(String id,String pwd); //정보 수정시 아이디&비밀번호 매칭
     public Optional<User> findById(String id);
+    public void save(User user);
 }

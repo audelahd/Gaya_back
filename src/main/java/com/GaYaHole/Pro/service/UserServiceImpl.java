@@ -41,7 +41,10 @@ public class UserServiceImpl implements UserService{
 
         userRepository.save(user);
     }
-
+    @Override
+    public void save(User user) { //회원가입
+        userRepository.save(user);
+    }
     @Override
     public String login(User user) { //로그인
         Optional<User> user2 = userRepository.findById(user.getId());

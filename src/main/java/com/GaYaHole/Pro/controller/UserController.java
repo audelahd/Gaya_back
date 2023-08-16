@@ -98,12 +98,11 @@ public class UserController {
     @PutMapping("/user/modify") //사용자 -> 사용자 정보 수정
     public int usermodify(@RequestBody User user){
         Optional<User> user1=userService.findById(user.getId());
-        User user2=new User();
-        if(user1.isPresent()){
-            user2=user1.get();
-        }
-        user.setPwd(user2.getPwd());
-        userService.join(user);
+        //받아온 아이디를 기준으로 유저의 전체정보조회
+        user.setPwd(user1.get().getPwd());
+        //제일먼저 가져온user에다가 비밀번호를 대입해줌.
+        userService.save(user);
+        //그걸 넣어줘
         return 1;
     }
 
